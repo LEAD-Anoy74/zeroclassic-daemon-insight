@@ -13,4 +13,4 @@ sudo apt-get install \
 
 forked from zeroinsight directly
 
-## COMPILE WITH --disable-tests THE SAME WAY AS COMMON DEAMON
+## COMPILE WITH --disable-tests --disable-rust THE SAME WAY AS COMMON DEAMON
