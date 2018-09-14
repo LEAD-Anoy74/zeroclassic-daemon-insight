@@ -672,7 +672,7 @@ bool ContextualCheckInputs(const CTransaction& tx, CValidationState &state, cons
 void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, int nHeight);
 
 /** Context-independent validity checks */
-bool CheckTransaction(const CTransaction& tx, CValidationState& state, libzcash::ProofVerifier& verifier);
+bool CheckTransaction(const CTransaction& tx, CValidationState& state, libzeroinsight::ProofVerifier& verifier);
 bool CheckTransactionWithoutProofVerification(const CTransaction& tx, CValidationState &state);
 
 /** Check for standard transaction types
@@ -757,7 +757,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 /** Context-independent validity checks */
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool fCheckPOW = true);
 bool CheckBlock(const CBlock& block, CValidationState& state,
-                libzcash::ProofVerifier& verifier,
+                libzeroinsight::ProofVerifier& verifier,
                 bool fCheckPOW, bool fCheckMerkleRoot);
 
 /** Context-dependent validity checks */

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec zcash-cli --datadir=/zeroinsight/data "${@}"
+exec zeroinsight-cli --datadir=/zeroinsight/data "${@}"

@@ -11,6 +11,6 @@ sudo apt-get install \
       zlib1g-dev wget bsdmainutils automake
 ```
 
-forked from zcash directly
+forked from zeroinsight directly
 
 ## COMPILE WITH --disable-tests THE SAME WAY AS COMMON DEAMON

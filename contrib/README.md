@@ -1,4 +1,4 @@
-*** Warning: This document has not been updated for Zcash and may be inaccurate. ***
+*** Warning: This document has not been updated for Zeroinsight and may be inaccurate. ***
 
 Wallet Tools
 ---------------------

@@ -46,7 +46,7 @@ void KDF(unsigned char K[NOTEENCRYPTION_CIPHER_KEYSIZE],
     }
 }
 
-namespace libzcash {
+namespace libzeroinsight {
 
 template<size_t MLEN>
 NoteEncryption<MLEN>::NoteEncryption(uint256 hSig) : nonce(0), hSig(hSig) {

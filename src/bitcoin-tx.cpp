@@ -44,10 +44,10 @@ static bool AppInitRawTx(int argc, char* argv[])
     if (argc<2 || mapArgs.count("-?") || mapArgs.count("-h") || mapArgs.count("-help"))
     {
         // First part of help message is specific to this utility
-        std::string strUsage = _("ZeroClassicInsight zcash-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("ZeroClassicInsight zeroinsight-tx utility version") + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  zcash-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded ZeroClassicInsight transaction") + "\n" +
-              "  zcash-tx [options] -create [commands]   " + _("Create hex-encoded ZeroClassicInsight transaction") + "\n" +
+              "  zeroinsight-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded ZeroClassicInsight transaction") + "\n" +
+              "  zeroinsight-tx [options] -create [commands]   " + _("Create hex-encoded ZeroClassicInsight transaction") + "\n" +
               "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());

@@ -15,4 +15,4 @@ Version: 1.1.3
 Depends: ${shlibs:Depends}
 Architecture: all
 Description: Community coin.
- ZeroClassicInsight is based on Bitcoin's & Zcash code.
+ ZeroClassicInsight is based on Bitcoin's & Zeroinsight code.

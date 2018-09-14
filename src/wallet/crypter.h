@@ -9,7 +9,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "support/allocators/secure.h"
-#include "zcash/Address.hpp"
+#include "zeroinsight/Address.hpp"
 
 class uint256;
 
@@ -200,11 +200,11 @@ public:
             mi++;
         }
     }
-    virtual bool AddCryptedSpendingKey(const libzcash::PaymentAddress &address,
-                                       const libzcash::ReceivingKey &rk,
+    virtual bool AddCryptedSpendingKey(const libzeroinsight::PaymentAddress &address,
+                                       const libzeroinsight::ReceivingKey &rk,
                                        const std::vector<unsigned char> &vchCryptedSecret);
-    bool AddSpendingKey(const libzcash::SpendingKey &sk);
-    bool HaveSpendingKey(const libzcash::PaymentAddress &address) const
+    bool AddSpendingKey(const libzeroinsight::SpendingKey &sk);
+    bool HaveSpendingKey(const libzeroinsight::PaymentAddress &address) const
     {
         {
             LOCK(cs_SpendingKeyStore);
@@ -214,8 +214,8 @@ public:
         }
         return false;
     }
-    bool GetSpendingKey(const libzcash::PaymentAddress &address, libzcash::SpendingKey &skOut) const;
-    void GetPaymentAddresses(std::set<libzcash::PaymentAddress> &setAddress) const
+    bool GetSpendingKey(const libzeroinsight::PaymentAddress &address, libzeroinsight::SpendingKey &skOut) const;
+    void GetPaymentAddresses(std::set<libzeroinsight::PaymentAddress> &setAddress) const
     {
         if (!IsCrypted())
         {

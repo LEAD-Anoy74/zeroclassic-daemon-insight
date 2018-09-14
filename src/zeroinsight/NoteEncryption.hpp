@@ -1,6 +1,6 @@
 /*
-See the Zcash protocol specification for more information.
-https://github.com/zcash/zips/blob/master/protocol/protocol.pdf
+See the Zeroinsight protocol specification for more information.
+https://github.com/zeroinsight/zips/blob/master/protocol/protocol.pdf
 */
 
 #ifndef ZC_NOTE_ENCRYPTION_H_
@@ -10,9 +10,9 @@ https://github.com/zcash/zips/blob/master/protocol/protocol.pdf
 #include "uint256.h"
 #include "uint252.h"
 
-#include "zcash/Zcash.h"
+#include "zeroinsight/Zeroinsight.h"
 
-namespace libzcash {
+namespace libzeroinsight {
 
 #define NOTEENCRYPTION_AUTH_BYTES 16
 
@@ -117,9 +117,9 @@ public:
 
 }
 
-typedef libzcash::NoteEncryption<ZC_NOTEPLAINTEXT_SIZE> ZCNoteEncryption;
-typedef libzcash::NoteDecryption<ZC_NOTEPLAINTEXT_SIZE> ZCNoteDecryption;
+typedef libzeroinsight::NoteEncryption<ZC_NOTEPLAINTEXT_SIZE> ZCNoteEncryption;
+typedef libzeroinsight::NoteDecryption<ZC_NOTEPLAINTEXT_SIZE> ZCNoteDecryption;
 
-typedef libzcash::PaymentDisclosureNoteDecryption<ZC_NOTEPLAINTEXT_SIZE> ZCPaymentDisclosureNoteDecryption;
+typedef libzeroinsight::PaymentDisclosureNoteDecryption<ZC_NOTEPLAINTEXT_SIZE> ZCPaymentDisclosureNoteDecryption;
 
 #endif /* ZC_NOTE_ENCRYPTION_H_ */

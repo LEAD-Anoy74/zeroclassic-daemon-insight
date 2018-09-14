@@ -1,4 +1,4 @@
-Zcash Contributors
+Zeroinsight Contributors
 ==================
 
 Jack Grigg (558)

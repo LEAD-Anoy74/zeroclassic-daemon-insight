@@ -1,5 +1,5 @@
-Building Zcash
+Building Zeroinsight
 
-See the Zcash github wiki (https://github.com/zcash/zcash/wiki) for instructions on building zcashd,
+See the Zeroinsight github wiki (https://github.com/zeroinsight/zeroinsight/wiki) for instructions on building zeroinsightd,
 the intended-for-services, no-graphical-interface, reference
-implementation of Zcash.
+implementation of Zeroinsight.

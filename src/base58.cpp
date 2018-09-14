@@ -373,26 +373,26 @@ DATA_TYPE CZCEncoding<DATA_TYPE, PREFIX, SER_SIZE>::Get() const
     return ret;
 }
 
-// Explicit instantiations for libzcash::PaymentAddress
-template bool CZCEncoding<libzcash::PaymentAddress,
+// Explicit instantiations for libzeroinsight::PaymentAddress
+template bool CZCEncoding<libzeroinsight::PaymentAddress,
                           CChainParams::ZCPAYMENT_ADDRRESS,
-                          libzcash::SerializedPaymentAddressSize>::Set(const libzcash::PaymentAddress& addr);
-template libzcash::PaymentAddress CZCEncoding<libzcash::PaymentAddress,
+                          libzeroinsight::SerializedPaymentAddressSize>::Set(const libzeroinsight::PaymentAddress& addr);
+template libzeroinsight::PaymentAddress CZCEncoding<libzeroinsight::PaymentAddress,
                                               CChainParams::ZCPAYMENT_ADDRRESS,
-                                              libzcash::SerializedPaymentAddressSize>::Get() const;
+                                              libzeroinsight::SerializedPaymentAddressSize>::Get() const;
 
-// Explicit instantiations for libzcash::ViewingKey
-template bool CZCEncoding<libzcash::ViewingKey,
+// Explicit instantiations for libzeroinsight::ViewingKey
+template bool CZCEncoding<libzeroinsight::ViewingKey,
                           CChainParams::ZCVIEWING_KEY,
-                          libzcash::SerializedViewingKeySize>::Set(const libzcash::ViewingKey& vk);
-template libzcash::ViewingKey CZCEncoding<libzcash::ViewingKey,
+                          libzeroinsight::SerializedViewingKeySize>::Set(const libzeroinsight::ViewingKey& vk);
+template libzeroinsight::ViewingKey CZCEncoding<libzeroinsight::ViewingKey,
                                           CChainParams::ZCVIEWING_KEY,
-                                          libzcash::SerializedViewingKeySize>::Get() const;
+                                          libzeroinsight::SerializedViewingKeySize>::Get() const;
 
-// Explicit instantiations for libzcash::SpendingKey
-template bool CZCEncoding<libzcash::SpendingKey,
+// Explicit instantiations for libzeroinsight::SpendingKey
+template bool CZCEncoding<libzeroinsight::SpendingKey,
                           CChainParams::ZCSPENDING_KEY,
-                          libzcash::SerializedSpendingKeySize>::Set(const libzcash::SpendingKey& sk);
-template libzcash::SpendingKey CZCEncoding<libzcash::SpendingKey,
+                          libzeroinsight::SerializedSpendingKeySize>::Set(const libzeroinsight::SpendingKey& sk);
+template libzeroinsight::SpendingKey CZCEncoding<libzeroinsight::SpendingKey,
                                            CChainParams::ZCSPENDING_KEY,
-                                           libzcash::SerializedSpendingKeySize>::Get() const;
+                                           libzeroinsight::SerializedSpendingKeySize>::Get() const;

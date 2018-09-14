@@ -27,4 +27,4 @@ then
     echo "rpcpassword=rpc`pwgen 15 1`" >> ~/.zeroinsight/zeroinsight.conf
 fi
 
-./zcashd
+./zeroinsightd

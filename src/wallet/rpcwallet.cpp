@@ -38,7 +38,7 @@
 
 using namespace std;
 
-using namespace libzcash;
+using namespace libzeroinsight;
 
 extern UniValue TxJoinSplitToJSON(const CTransaction& tx);
 
@@ -119,7 +119,7 @@ UniValue getnewaddress(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. \"account\"        (string, optional) DEPRECATED. If provided, it MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
             "\nResult:\n"
-            "\"zcashaddress\"    (string) The new ZeroClassicInsight address\n"
+            "\"zeroinsightaddress\"    (string) The new ZeroClassicInsight address\n"
             "\nExamples:\n"
             + HelpExampleCli("getnewaddress", "")
             + HelpExampleRpc("getnewaddress", "")
@@ -196,7 +196,7 @@ UniValue getaccountaddress(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. \"account\"       (string, required) MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
             "\nResult:\n"
-            "\"zcashaddress\"   (string) The account ZeroClassicInsight address\n"
+            "\"zeroinsightaddress\"   (string) The account ZeroClassicInsight address\n"
             "\nExamples:\n"
             + HelpExampleCli("getaccountaddress", "")
             + HelpExampleCli("getaccountaddress", "\"\"")
@@ -258,10 +258,10 @@ UniValue setaccount(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount \"zcashaddress\" \"account\"\n"
+            "setaccount \"zeroinsightaddress\" \"account\"\n"
             "\nDEPRECATED. Sets the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"zcashaddress\"  (string, required) The ZeroClassicInsight address to be associated with an account.\n"
+            "1. \"zeroinsightaddress\"  (string, required) The ZeroClassicInsight address to be associated with an account.\n"
             "2. \"account\"         (string, required) MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
             "\nExamples:\n"
             + HelpExampleCli("setaccount", "\"t14oHp2v54vfmdgQ3v3SNuQga8JKHTNi2a1\" \"tabby\"")
@@ -304,10 +304,10 @@ UniValue getaccount(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount \"zcashaddress\"\n"
+            "getaccount \"zeroinsightaddress\"\n"
             "\nDEPRECATED. Returns the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"zcashaddress\"  (string, required) The ZeroClassicInsight address for account lookup.\n"
+            "1. \"zeroinsightaddress\"  (string, required) The ZeroClassicInsight address for account lookup.\n"
             "\nResult:\n"
             "\"accountname\"        (string) the account address\n"
             "\nExamples:\n"
@@ -342,7 +342,7 @@ UniValue getaddressesbyaccount(const UniValue& params, bool fHelp)
             "1. \"account\"  (string, required) MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
             "\nResult:\n"
             "[                     (json array of string)\n"
-            "  \"zcashaddress\"  (string) a ZeroClassicInsight address associated with the given account\n"
+            "  \"zeroinsightaddress\"  (string) a ZeroClassicInsight address associated with the given account\n"
             "  ,...\n"
             "]\n"
             "\nExamples:\n"
@@ -377,7 +377,7 @@ static void SendMoney(const CTxDestination &address, CAmount nValue, bool fSubtr
     if (nValue > curBalance)
         throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
 
-    // Parse Zcash address
+    // Parse Zeroinsight address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -404,11 +404,11 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 2 || params.size() > 5)
         throw runtime_error(
-            "sendtoaddress \"zcashaddress\" amount ( \"comment\" \"comment-to\" subtractfeefromamount )\n"
+            "sendtoaddress \"zeroinsightaddress\" amount ( \"comment\" \"comment-to\" subtractfeefromamount )\n"
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n"
             + HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"zcashaddress\"  (string, required) The ZeroClassicInsight address to send to.\n"
+            "1. \"zeroinsightaddress\"  (string, required) The ZeroClassicInsight address to send to.\n"
             "2. \"amount\"      (numeric, required) The amount in " + CURRENCY_UNIT + " to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
@@ -470,7 +470,7 @@ UniValue listaddressgroupings(const UniValue& params, bool fHelp)
             "[\n"
             "  [\n"
             "    [\n"
-            "      \"zcashaddress\",     (string) The ZeroClassicInsight address\n"
+            "      \"zeroinsightaddress\",     (string) The ZeroClassicInsight address\n"
             "      amount,                 (numeric) The amount in " + CURRENCY_UNIT + "\n"
             "      \"account\"             (string, optional) The account (DEPRECATED)\n"
             "    ]\n"
@@ -513,11 +513,11 @@ UniValue signmessage(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage \"zcashaddress\" \"message\"\n"
+            "signmessage \"zeroinsightaddress\" \"message\"\n"
             "\nSign a message with the private key of an address"
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
-            "1. \"zcashaddress\"  (string, required) The ZeroClassicInsight address to use for the private key.\n"
+            "1. \"zeroinsightaddress\"  (string, required) The ZeroClassicInsight address to use for the private key.\n"
             "2. \"message\"         (string, required) The message to create a signature of.\n"
             "\nResult:\n"
             "\"signature\"          (string) The signature of the message encoded in base 64\n"
@@ -569,10 +569,10 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress \"zcashaddress\" ( minconf )\n"
-            "\nReturns the total amount received by the given Zcash address in transactions with at least minconf confirmations.\n"
+            "getreceivedbyaddress \"zeroinsightaddress\" ( minconf )\n"
+            "\nReturns the total amount received by the given Zeroinsight address in transactions with at least minconf confirmations.\n"
             "\nArguments:\n"
-            "1. \"zcashaddress\"  (string, required) The ZeroClassicInsight address for transactions.\n"
+            "1. \"zeroinsightaddress\"  (string, required) The ZeroClassicInsight address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
             "amount   (numeric) The total amount in " + CURRENCY_UNIT + " received at this address.\n"
@@ -877,13 +877,13 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom \"fromaccount\" \"tozcashaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
-            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a Zcash address.\n"
+            "sendfrom \"fromaccount\" \"tozeroinsightaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
+            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a Zeroinsight address.\n"
             "The amount is a real and is rounded to the nearest 0.00000001."
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
             "1. \"fromaccount\"       (string, required) MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
-            "2. \"tozcashaddress\"  (string, required) The ZeroClassicInsight address to send funds to.\n"
+            "2. \"tozeroinsightaddress\"  (string, required) The ZeroClassicInsight address to send funds to.\n"
             "3. amount                (numeric, required) The amount in " + CURRENCY_UNIT + " (transaction fee is added on top).\n"
             "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
             "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
@@ -956,7 +956,7 @@ UniValue sendmany(const UniValue& params, bool fHelp)
             "4. \"comment\"             (string, optional) A comment\n"
             "5. subtractfeefromamount   (string, optional) A json array with addresses.\n"
             "                           The fee will be equally deducted from the amount of each selected address.\n"
-            "                           Those recipients will receive less Zcash than you enter in their corresponding amount field.\n"
+            "                           Those recipients will receive less Zeroinsight than you enter in their corresponding amount field.\n"
             "                           If no addresses are specified here, the sender pays the fee.\n"
             "    [\n"
             "      \"address\"            (string) Subtract fee from this address\n"
@@ -1071,7 +1071,7 @@ UniValue addmultisigaddress(const UniValue& params, bool fHelp)
             "3. \"account\"      (string, optional) DEPRECATED. If provided, MUST be set to the empty string \"\" to represent the default account. Passing any other string will result in an error.\n"
 
             "\nResult:\n"
-            "\"zcashaddress\"  (string) A ZeroClassicInsight address associated with the keys.\n"
+            "\"zeroinsightaddress\"  (string) A ZeroClassicInsight address associated with the keys.\n"
 
             "\nExamples:\n"
             "\nAdd a multisig address from 2 addresses\n"
@@ -1418,7 +1418,7 @@ UniValue listtransactions(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"account\":\"accountname\",       (string) DEPRECATED. The account name associated with the transaction. \n"
             "                                                It will be \"\" for the default account.\n"
-            "    \"address\":\"zcashaddress\",    (string) The ZeroClassicInsight address of the transaction. Not present for \n"
+            "    \"address\":\"zeroinsightaddress\",    (string) The ZeroClassicInsight address of the transaction. Not present for \n"
             "                                                move transactions (category = move).\n"
             "    \"category\":\"send|receive|move\", (string) The transaction category. 'move' is a local (off blockchain)\n"
             "                                                transaction between accounts, and not associated with an address,\n"
@@ -1618,7 +1618,7 @@ UniValue listsinceblock(const UniValue& params, bool fHelp)
             "{\n"
             "  \"transactions\": [\n"
             "    \"account\":\"accountname\",       (string) DEPRECATED. The account name associated with the transaction. Will be \"\" for the default account.\n"
-            "    \"address\":\"zcashaddress\",    (string) The ZeroClassicInsight address of the transaction. Not present for move transactions (category = move).\n"
+            "    \"address\":\"zeroinsightaddress\",    (string) The ZeroClassicInsight address of the transaction. Not present for move transactions (category = move).\n"
             "    \"category\":\"send|receive\",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.\n"
             "    \"amount\": x.xxx,          (numeric) The amount in " + CURRENCY_UNIT + ". This is negative for the 'send' category, and for the 'move' category for moves \n"
             "                                          outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.\n"
@@ -1717,7 +1717,7 @@ UniValue gettransaction(const UniValue& params, bool fHelp)
             "  \"details\" : [\n"
             "    {\n"
             "      \"account\" : \"accountname\",  (string) DEPRECATED. The account name involved in the transaction, can be \"\" for the default account.\n"
-            "      \"address\" : \"zcashaddress\",   (string) The ZeroClassicInsight address involved in the transaction\n"
+            "      \"address\" : \"zeroinsightaddress\",   (string) The ZeroClassicInsight address involved in the transaction\n"
             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
             "      \"amount\" : x.xxx                  (numeric) The amount in " + CURRENCY_UNIT + "\n"
             "      \"vout\" : n,                       (numeric) the vout value\n"
@@ -2045,7 +2045,7 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
             "\nNow set the passphrase to use the wallet, such as for signing or sending ZeroClassicInsight\n"
             + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
             "\nNow we can so something like sign\n"
-            + HelpExampleCli("signmessage", "\"zcashaddress\" \"test message\"") +
+            + HelpExampleCli("signmessage", "\"zeroinsightaddress\" \"test message\"") +
             "\nNow lock the wallet again by removing the passphrase\n"
             + HelpExampleCli("walletlock", "") +
             "\nAs a json rpc call\n"
@@ -2493,7 +2493,7 @@ UniValue zc_sample_joinsplit(const UniValue& params, bool fHelp)
 
     uint256 pubKeyHash;
     uint256 anchor = ZCIncrementalMerkleTree().root();
-    JSDescription samplejoinsplit(*pzcashParams,
+    JSDescription samplejoinsplit(*pzeroinsightParams,
                                   pubKeyHash,
                                   anchor,
                                   {JSInput(), JSInput()},
@@ -2822,7 +2822,7 @@ UniValue zc_raw_joinsplit(const UniValue& params, bool fHelp)
     mtx.nVersion = 2;
     mtx.joinSplitPubKey = joinSplitPubKey;
 
-    JSDescription jsdesc(*pzcashParams,
+    JSDescription jsdesc(*pzeroinsightParams,
                          joinSplitPubKey,
                          anchor,
                          {vjsin[0], vjsin[1]},
@@ -2831,8 +2831,8 @@ UniValue zc_raw_joinsplit(const UniValue& params, bool fHelp)
                          vpub_new);
 
     {
-        auto verifier = libzcash::ProofVerifier::Strict();
-        assert(jsdesc.Verify(*pzcashParams, verifier, joinSplitPubKey));
+        auto verifier = libzeroinsight::ProofVerifier::Strict();
+        assert(jsdesc.Verify(*pzeroinsightParams, verifier, joinSplitPubKey));
     }
 
     mtx.vjoinsplit.push_back(jsdesc);
@@ -2866,7 +2866,7 @@ UniValue zc_raw_joinsplit(const UniValue& params, bool fHelp)
         ss2 << ((unsigned char) 0x00);
         ss2 << jsdesc.ephemeralKey;
         ss2 << jsdesc.ciphertexts[0];
-        ss2 << jsdesc.h_sig(*pzcashParams, joinSplitPubKey);
+        ss2 << jsdesc.h_sig(*pzeroinsightParams, joinSplitPubKey);
 
         encryptedNote1 = HexStr(ss2.begin(), ss2.end());
     }
@@ -2875,7 +2875,7 @@ UniValue zc_raw_joinsplit(const UniValue& params, bool fHelp)
         ss2 << ((unsigned char) 0x01);
         ss2 << jsdesc.ephemeralKey;
         ss2 << jsdesc.ciphertexts[1];
-        ss2 << jsdesc.h_sig(*pzcashParams, joinSplitPubKey);
+        ss2 << jsdesc.h_sig(*pzeroinsightParams, joinSplitPubKey);
 
         encryptedNote2 = HexStr(ss2.begin(), ss2.end());
     }
@@ -2934,7 +2934,7 @@ UniValue z_getnewaddress(const UniValue& params, bool fHelp)
             "\nReturns a new zaddr for receiving payments.\n"
             "\nArguments:\n"
             "\nResult:\n"
-            "\"zcashaddress\"    (string) The new zaddr\n"
+            "\"zeroinsightaddress\"    (string) The new zaddr\n"
             "\nExamples:\n"
             + HelpExampleCli("z_getnewaddress", "")
             + HelpExampleRpc("z_getnewaddress", "")
@@ -2979,7 +2979,7 @@ UniValue z_listaddresses(const UniValue& params, bool fHelp)
     }
 
     UniValue ret(UniValue::VARR);
-    std::set<libzcash::PaymentAddress> addresses;
+    std::set<libzeroinsight::PaymentAddress> addresses;
     pwalletMain->GetPaymentAddresses(addresses);
     for (auto addr : addresses ) {
         if (fIncludeWatchonly || pwalletMain->HaveSpendingKey(addr)) {
@@ -3080,7 +3080,7 @@ UniValue z_listreceivedbyaddress(const UniValue& params, bool fHelp)
     // Check that the from address is valid.
     auto fromaddress = params[0].get_str();
 
-    libzcash::PaymentAddress zaddr;
+    libzeroinsight::PaymentAddress zaddr;
     CZCPaymentAddress address(fromaddress);
     try {
         zaddr = address.Get();
@@ -3148,7 +3148,7 @@ UniValue z_getbalance(const UniValue& params, bool fHelp)
     bool fromTaddr = false;
     CBitcoinAddress taddr(fromaddress);
     fromTaddr = taddr.IsValid();
-    libzcash::PaymentAddress zaddr;
+    libzeroinsight::PaymentAddress zaddr;
     if (!fromTaddr) {
         CZCPaymentAddress address(fromaddress);
         try {
@@ -3382,7 +3382,7 @@ UniValue z_sendmany(const UniValue& params, bool fHelp)
     bool fromTaddr = false;
     CBitcoinAddress taddr(fromaddress);
     fromTaddr = taddr.IsValid();
-    libzcash::PaymentAddress zaddr;
+    libzeroinsight::PaymentAddress zaddr;
     if (!fromTaddr) {
         CZCPaymentAddress address(fromaddress);
         try {
@@ -3601,7 +3601,7 @@ UniValue z_shieldcoinbase(const UniValue& params, bool fHelp)
     auto destaddress = params[1].get_str();
     try {
         CZCPaymentAddress pa(destaddress);
-        libzcash::PaymentAddress zaddr = pa.Get();
+        libzeroinsight::PaymentAddress zaddr = pa.Get();
     } catch (const std::runtime_error&) {
         throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, unknown address format: ") + destaddress );
     }

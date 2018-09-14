@@ -4,22 +4,22 @@
 
 #include <boost/foreach.hpp>
 
-#include "zcash/prf.h"
+#include "zeroinsight/prf.h"
 #include "util.h"
 
-#include "zcash/JoinSplit.hpp"
-#include "zcash/Note.hpp"
-#include "zcash/NoteEncryption.hpp"
-#include "zcash/IncrementalMerkleTree.hpp"
+#include "zeroinsight/JoinSplit.hpp"
+#include "zeroinsight/Note.hpp"
+#include "zeroinsight/NoteEncryption.hpp"
+#include "zeroinsight/IncrementalMerkleTree.hpp"
 
-using namespace libzcash;
+using namespace libzeroinsight;
 
 extern ZCJoinSplit* params;
 
 void test_full_api(ZCJoinSplit* js)
 {
     // Create verification context.
-    auto verifier = libzcash::ProofVerifier::Strict();
+    auto verifier = libzeroinsight::ProofVerifier::Strict();
 
     // The recipient's information.
     SpendingKey recipient_key = SpendingKey::random();

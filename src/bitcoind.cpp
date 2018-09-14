@@ -82,7 +82,7 @@ bool AppInit(int argc, char* argv[])
         else
         {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  zcashd [options]                     " + _("Start ZeroClassicInsight Daemon") + "\n";
+                  "  zeroinsightd [options]                     " + _("Start ZeroClassicInsight Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -101,13 +101,13 @@ bool AppInit(int argc, char* argv[])
         try
         {
             ReadConfigFile(mapArgs, mapMultiArgs);
-        } catch (const missing_zcash_conf& e) {
+        } catch (const missing_zeroinsight_conf& e) {
             fprintf(stderr,
-                (_("Before starting zcashd, you need to create a configuration file:\n"
+                (_("Before starting zeroinsightd, you need to create a configuration file:\n"
                    "%s\n"
                    "It can be completely empty! That indicates you are happy with the default\n"
-                   "configuration of zcashd. But requiring a configuration file to start ensures\n"
-                   "that zcashd won't accidentally compromise your privacy if there was a default\n"
+                   "configuration of zeroinsightd. But requiring a configuration file to start ensures\n"
+                   "that zeroinsightd won't accidentally compromise your privacy if there was a default\n"
                    "option you needed to change.\n"
                    "\n"
                    "You can look at the example configuration file for suggestions of default\n"
@@ -117,7 +117,7 @@ bool AppInit(int argc, char* argv[])
                    "- .deb package: %s\n")).c_str(),
                 GetConfigFile().string().c_str(),
                 "contrib/debian/examples/zeroinsight.conf",
-                "/usr/share/doc/zcash/examples/zeroinsight.conf");
+                "/usr/share/doc/zeroinsight/examples/zeroinsight.conf");
             return false;
         } catch (const std::exception& e) {
             fprintf(stderr,"Error reading configuration file: %s\n", e.what());
@@ -132,12 +132,12 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "zcash:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "zeroinsight:"))
                 fCommandLine = true;
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in zcashd. Use the zcash-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in zeroinsightd. Use the zeroinsight-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32

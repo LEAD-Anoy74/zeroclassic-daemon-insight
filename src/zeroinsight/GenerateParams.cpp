@@ -1,4 +1,4 @@
-#include "zcash/JoinSplit.hpp"
+#include "zeroinsight/JoinSplit.hpp"
 
 #include <iostream>
 #include "crypto/common.h"

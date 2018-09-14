@@ -46,18 +46,18 @@ RUN apt-get update \
 RUN mkdir -p /zeroinsight/data
 
 # Copy binaries from build container
-COPY --from=build /usr/local/src/src/zcashd /usr/local/bin
-COPY --from=build /usr/local/src/src/zcash-cli /usr/local/bin
-COPY --from=build /usr/local/src/src/zcash-gtest /usr/local/bin
-COPY --from=build /usr/local/src/src/zcash-tx /usr/local/bin
+COPY --from=build /usr/local/src/src/zeroinsightd /usr/local/bin
+COPY --from=build /usr/local/src/src/zeroinsight-cli /usr/local/bin
+COPY --from=build /usr/local/src/src/zeroinsight-gtest /usr/local/bin
+COPY --from=build /usr/local/src/src/zeroinsight-tx /usr/local/bin
 COPY contrib/docker/cli /usr/local/bin
 
 RUN chmod +x /usr/local/bin/cli
 
-# Copy zcash params
-COPY --from=build /root/.zcash-params /zeroinsight/.zcash-params
+# Copy zeroinsight params
+COPY --from=build /root/.zeroinsight-params /zeroinsight/.zeroinsight-params
 
 RUN chown -R zeroinsight: /zeroinsight
 USER zeroinsight
 WORKDIR /zeroinsight
-CMD ["zcashd", "--datadir=/zeroinsight/data", "--printtoconsole"]
+CMD ["zeroinsightd", "--datadir=/zeroinsight/data", "--printtoconsole"]

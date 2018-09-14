@@ -2,11 +2,11 @@
 #define ZC_NOTE_H_
 
 #include "uint256.h"
-#include "Zcash.h"
+#include "Zeroinsight.h"
 #include "Address.hpp"
 #include "NoteEncryption.hpp"
 
-namespace libzcash {
+namespace libzeroinsight {
 
 class Note {
 public:

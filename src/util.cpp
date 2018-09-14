@@ -444,10 +444,10 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Zcash
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Zcash
-    // Mac: ~/Library/Application Support/Zcash
-    // Unix: ~/.zcash
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Zeroinsight
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Zeroinsight
+    // Mac: ~/Library/Application Support/Zeroinsight
+    // Unix: ~/.zeroinsight
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "ZeroClassicInsight";
@@ -477,13 +477,13 @@ static CCriticalSection csPathCached;
 
 static boost::filesystem::path ZC_GetBaseParamsDir()
 {
-    // Copied from GetDefaultDataDir and adapter for zcash params.
+    // Copied from GetDefaultDataDir and adapter for zeroinsight params.
 
     namespace fs = boost::filesystem;
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\ZcashParams
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\ZcashParams
     // Mac: ~/Library/Application Support/ZcashParams
-    // Unix: ~/.zcash-params
+    // Unix: ~/.zeroinsight-params
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "ZcashParams";
@@ -501,7 +501,7 @@ static boost::filesystem::path ZC_GetBaseParamsDir()
     return pathRet / "ZcashParams";
 #else
     // Unix
-    return pathRet / ".zcash-params";
+    return pathRet / ".zeroinsight-params";
 #endif
 #endif
 }
@@ -594,14 +594,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        throw missing_zcash_conf();
+        throw missing_zeroinsight_conf();
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override zcash.conf
+        // Don't overwrite existing settings so command line settings override zeroinsight.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -618,7 +618,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "zcashd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "zeroinsightd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -899,7 +899,7 @@ std::string LicenseInfo()
 {
     return "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2009-%i The Bitcoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
-           FormatParagraph(strprintf(_("Copyright (C) 2015-%i The Zcash Developers"), COPYRIGHT_YEAR)) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2015-%i The Zeroinsight Developers"), COPYRIGHT_YEAR)) + "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2015-%i zdeveloper.org"), COPYRIGHT_YEAR)) + "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2017-%i ZeroClassicInsight team"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +

@@ -38,7 +38,7 @@ cat > /etc/systemd/system/zeroinsight.service << EOF
 Description=zeroinsight
 
 [Service]
-ExecStart=`cd ~; pwd`/zeroinsight-pkg/zcashd
+ExecStart=`cd ~; pwd`/zeroinsight-pkg/zeroinsightd
 User=$1
 Restart=always
 

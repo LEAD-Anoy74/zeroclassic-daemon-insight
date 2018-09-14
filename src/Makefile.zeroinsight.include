@@ -1,28 +1,28 @@
 noinst_PROGRAMS += \
-  zcash/GenerateParams \
-  zcash/CreateJoinSplit
+  zeroinsight/GenerateParams \
+  zeroinsight/CreateJoinSplit
 
 # tool for generating our public parameters
-zcash_GenerateParams_SOURCES = zcash/GenerateParams.cpp
-zcash_GenerateParams_CPPFLAGS = $(AM_CPPFLAGS)
-zcash_GenerateParams_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zcash_GenerateParams_LDADD = \
+zeroinsight_GenerateParams_SOURCES = zeroinsight/GenerateParams.cpp
+zeroinsight_GenerateParams_CPPFLAGS = $(AM_CPPFLAGS)
+zeroinsight_GenerateParams_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+zeroinsight_GenerateParams_LDADD = \
   $(BOOST_LIBS) \
-  $(LIBZCASH) \
+  $(LIBZEROINSIGHT) \
   $(LIBSNARK) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
-  $(LIBZCASH_LIBS)
+  $(LIBZEROINSIGHT_LIBS)
 
 # tool for profiling the creation of joinsplits
-zcash_CreateJoinSplit_SOURCES = zcash/CreateJoinSplit.cpp
-zcash_CreateJoinSplit_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-zcash_CreateJoinSplit_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zcash_CreateJoinSplit_LDADD = \
+zeroinsight_CreateJoinSplit_SOURCES = zeroinsight/CreateJoinSplit.cpp
+zeroinsight_CreateJoinSplit_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+zeroinsight_CreateJoinSplit_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+zeroinsight_CreateJoinSplit_LDADD = \
   $(LIBBITCOIN_COMMON) \
-  $(LIBZCASH) \
+  $(LIBZEROINSIGHT) \
   $(LIBSNARK) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(BOOST_LIBS) \
-  $(LIBZCASH_LIBS)
+  $(LIBZEROINSIGHT_LIBS)

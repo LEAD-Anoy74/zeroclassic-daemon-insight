@@ -1,5 +1,5 @@
 /*
-Zcash uses SHA256Compress as a PRF for various components
+Zeroinsight uses SHA256Compress as a PRF for various components
 within the zkSNARK circuit.
 */
 

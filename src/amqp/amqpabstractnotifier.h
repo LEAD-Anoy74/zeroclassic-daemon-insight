@@ -1,9 +1,9 @@
-// Copyright (c) 2017 The Zcash developers
+// Copyright (c) 2017 The Zeroinsight developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
-#define ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
+#ifndef ZEROINSIGHT_AMQP_AMQPABSTRACTNOTIFIER_H
+#define ZEROINSIGHT_AMQP_AMQPABSTRACTNOTIFIER_H
 
 #include "amqpconfig.h"
 
@@ -40,4 +40,4 @@ protected:
     std::string address;
 };
 
-#endif // ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
+#endif // ZEROINSIGHT_AMQP_AMQPABSTRACTNOTIFIER_H
